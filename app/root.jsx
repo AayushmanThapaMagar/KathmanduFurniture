@@ -106,7 +106,7 @@ export default function App() {
       </head>
       <body>
         <Layout {...data}>
-          <Outlet />
+          <Outlet/>
         </Layout>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
