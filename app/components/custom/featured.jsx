@@ -1,30 +1,38 @@
 export default function FeaturedProducts({collection}) {
   const products = collection.collection.products.nodes;
   return (
-    <div className="h-auto w-auto">
+    <div className="pb-10">
       <h1 className="align-self-center text-center">
         {collection.collection.title}
       </h1>
-      <div className="flex flex-wrap content-center justify-center h-auto w-auto">
+
+      {/* div containing the product cards */}
+      <div className="flex flex-wrap content-center justify-center gap-x-4 ">
         {products.map((product) => (
-          <a key={product.id} href={`/products/${product.handle}`}>
-            <div
-              className="
-            bg-cover bg-center h-96 w-96 bg-gray-100
-            m-4 hover:scale-105 hover:shadow-lg transition duration-500 ease-in-out rounded-md"
-            >
-              <h2>{product.title}</h2>
-              <p>
-                Price: {product.variants.nodes[0].price.amount}{' '}
-                {product.variants.nodes[0].price.currencyCode}
-              </p>
+          // the product card
+          <div className="group bg-gray-100 hover:scale-105 hover:shadow-lg transition duration-300 ease-in-out rounded-md overflow-hidden">
+            {/* a tag inside */}
+            <a href={`/products/${product.handle}`}>
               <img
-                className="obejct-cover object-fill overflow-clip hover:scale-110 hover:shadow-xl duration-700"
+                className=" h-96 w-96 object-fill overflow-clip hover:scale-110 duration-500"
                 src={product.variants.nodes[0].image.url}
                 alt={product.title}
               />
-            </div>
-          </a>
+
+              <div
+              className="px-4 pb-4"
+              >
+                <h2>{product.title}</h2>
+                <p>
+                  {product.variants.nodes[0].price.currencyCode}{' '}
+                  {product.variants.nodes[0].price.amount}{' '}
+                </p>
+              </div>
+            </a>
+            <button className="opactiy-0 group-hover:opacity-100 transition absolute top-2 right-2 p-2 duration-500">
+              add to cart
+            </button>
+          </div>
         ))}
       </div>
     </div>
