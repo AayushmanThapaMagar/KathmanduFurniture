@@ -1,4 +1,5 @@
 import {CartForm} from '@shopify/hydrogen';
+import {PiShoppingCartSimpleFill} from "react-icons/pi"
 
 export default function FeaturedProducts({collection}) {
   const products = collection.collection.products.nodes;
@@ -40,14 +41,16 @@ export default function FeaturedProducts({collection}) {
                   product.variants.nodes[0]
                     ? [
                         {
-                          merchandiseId: product.variants.nodes[product.variants.nodes.length -1 ].id,
+                          merchandiseId: product.variants.nodes[0].id,
                           quantity: 1,
                         },
                       ]
                     : []
                 }
               >
-                {product.availableForSale ? 'Add to cart' : 'Sold out'}
+                {product.availableForSale ? 
+                <PiShoppingCartSimpleFill className="hover:scale-105 w-7 h-7" />
+                : 'Sold out'}
               </AddToCartButton>
             </div>
           </div>
@@ -57,7 +60,7 @@ export default function FeaturedProducts({collection}) {
   );
 }
 
-// function AddToCartButton({analytics, children, disabled, lines, onClick}) {
+
 function AddToCartButton({analytics, children, disabled, lines, onClick}) {
   return (
     <CartForm route="/cart" inputs={{lines}} action={CartForm.ACTIONS.LinesAdd}>
