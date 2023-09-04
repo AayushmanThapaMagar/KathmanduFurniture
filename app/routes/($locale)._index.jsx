@@ -36,12 +36,14 @@ query {
     title,
     products (first: 10) {
       nodes {
-        
+        availableForSale,
         title,
         id,
         handle,
-        variants (first: 1) {
+        variants (first: 10) {
           nodes {
+            id,
+            
             image {
               url
             }
