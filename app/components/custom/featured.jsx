@@ -4,34 +4,34 @@ import {PiShoppingCartSimpleFill} from 'react-icons/pi';
 export default function FeaturedProducts({collection}) {
   const products = collection.collection.products.nodes;
   return (
-    <div className="pb-10">
+    <div className="mb-5">
       <h1 className="align-self-center text-center">
         {collection.collection.title}
       </h1>
 
       {/* div containing the product cards */}
-      <div className="flex flex-wrap content-center justify-center gap-x-5 gap-y-5">
+      <div className="flex flex-row flex-nowrap lg:content-center lg:justify-center lg:gap-x-5 gap-y-5 overflow-y-auto gap-x-5">
         {products.map((product) => (
           // the product card
-          <div className="m-5 group bg-gray-100 hover:scale-105 hover:shadow-lg transition duration-300 ease-in-out rounded-md overflow-hidden">
+          <div className="lg:m-5 group bg-gray-100 transition duration-300 ease-in-out rounded-md overflow-hidden flex-shrink-0 lg:scale-105">
             {/* a tag inside */}
             <a className=" no-underline" href={`/products/${product.handle}`}>
               <img
-                className=" h-80 w-80 object-fill overflow-clip hover:scale-110 duration-500"
+                className="lg:h-80 lg:w-80 w-64 h-64 object-fill overflow-clip group-hover:scale-110 duration-500"
                 src={product.variants.nodes[0].image.url}
                 alt={product.title}
               />
 
               <div className="px-4 pb-4">
                 <h2 className="no-underline">{product.title}</h2>
-                {product.availableForSale ? <p>Available</p> : <p>Sold Out</p>}
+                {/* {product.availableForSale ? <p>Available</p> : <p>Sold Out</p>} */}
                 <p>
                   {product.variants.nodes[0].price.currencyCode}{' '}
                   {product.variants.nodes[0].price.amount}{' '}
                 </p>
               </div>
             </a>
-            <div className="opactiy-0 group-hover:opacity-100 transition absolute top-2 right-2 p-2 duration-500">
+            <div className="lg:opactiy-0 group-hover:opacity-100 transition absolute top-2 right-2 p-2 duration-500 opacity-100">
               <AddToCartButton
                 disabled={!product.availableForSale}
                 onClick={() => {

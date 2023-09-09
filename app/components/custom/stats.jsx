@@ -1,5 +1,9 @@
 export default function Stats() {
   return (
-    <div className="w-full h-[150px] bg-black text-white relative mb-12 lg:bg-center lg:mb-28"></div>
+    <div className="flex justify-center">
+      <div className="w-full lg:mx-10 h-[100px] bg-gray-200 text-white relative rounded-lg">
+        {/* Your content goes here */}
+      </div>
+    </div>
   );
 }

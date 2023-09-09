@@ -6,7 +6,7 @@ export default function Hero() {
   const buttonText = 'Shop Now';
 
   return (
-    <section className="h-[600px] w-full bg-black text-white pt-[255px] pb-[254px] relative mb-12 lg:bg-center lg:mb-28">
+    <section className="h-[600px] w-full bg-black text-white pt-[255px] pb-[254px] relative mb-10 lg:bg-center">
       {/* Video Background */}
       <video
         className="w-full h-full object-cover absolute top-0 left-0 opacity-40"

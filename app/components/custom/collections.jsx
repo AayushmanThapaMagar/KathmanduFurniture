@@ -7,7 +7,7 @@ export default function Collections({getData}) {
         {data.map((collection) =>
           collection.title === 'Featured Products' ? (
             <a
-              className="group lg:w-1/6 lg:h-full  overflow-hidden flex items-center justify-center rounded-lg bg-black lg:my-3 scale-95"
+              className="group lg:w-1/6 lg:h-full  overflow-hidden flex items-center justify-center rounded-lg bg-black lg:my-3 scale-95 m-1"
               href="/collections/"
               alt = "All Collections"
             >
@@ -21,7 +21,7 @@ export default function Collections({getData}) {
               <img
                 src = "/images/allcollections.jpg"
                 alt = "All Collections"
-                className="z-0 w-48 h-48 lg:w-full lg:h-[700px] object-cover group-hover:scale-110 transition duration-1000 ease-in-out overflow-hidden group-hover:opacity-30 opacity-50 lg:opacity-75"
+                className="z-0 w-40 h-40 lg:w-full lg:h-[700px] object-cover group-hover:scale-110 transition duration-1000 ease-in-out overflow-hidden group-hover:opacity-30 opacity-50 lg:opacity-75"
               />
             </a>
           ) : (
@@ -38,7 +38,7 @@ export default function Collections({getData}) {
 
               <img
                 src={collection.image.url}
-                className="z-0 w-48 h-48 lg:w-full lg:h-[700px] object-cover group-hover:scale-110 transition duration-1000 ease-in-out overflow-hidden group-hover:opacity-30 opacity-50 lg:opacity-75"
+                className="z-0 w-40 h-40 lg:w-full lg:h-[700px] object-cover group-hover:scale-110 transition duration-1000 ease-in-out overflow-hidden group-hover:opacity-30 opacity-50 lg:opacity-75"
               />
             </a>
           ),
