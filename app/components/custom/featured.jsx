@@ -10,7 +10,7 @@ export default function FeaturedProducts({collection}) {
       </h1>
 
       {/* div containing the product cards */}
-      <div className="flex flex-wrap content-center justify-center gap-x-5 gap-y-5tea no-underline">
+      <div className="flex flex-wrap content-center justify-center gap-x-5 gap-y-5">
         {products.map((product) => (
           // the product card
           <div className="m-5 group bg-gray-100 hover:scale-105 hover:shadow-lg transition duration-300 ease-in-out rounded-md overflow-hidden">
