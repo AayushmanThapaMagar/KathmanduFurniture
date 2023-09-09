@@ -4,6 +4,8 @@ import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import Hero from '~/components/custom/hero';
 import FeaturedProducts from '~/components/custom/featured';
+import Collections from "~/components/custom/collections";
+import Stats from "~/components/custom/stats";
 
 export const meta = () => {
   return [
@@ -15,9 +17,9 @@ export const meta = () => {
 export async function loader({context}) {
   const {storefront} = context;
   const featuredCollection = await storefront.query(FEATURED_COLLECTION_QUERY);
-  const recommendedProducts = 'test';
+  const viewCollections = await storefront.query(INDEX_COLLECTIONS_QUERY);
 
-  return defer({featuredCollection, recommendedProducts});
+  return defer({featuredCollection, viewCollections});
 }
 
 export default function Homepage() {
@@ -25,7 +27,9 @@ export default function Homepage() {
   return (
     <div className="home">
       <Hero />
+      <Stats />
       <FeaturedProducts collection={data.featuredCollection} />
+      <Collections getData={data.viewCollections}/>
     </div>
   );
 }
@@ -58,3 +62,17 @@ query {
   }
 }
 `;
+
+const INDEX_COLLECTIONS_QUERY = ` #graphql
+query {
+  collections(first:10, reverse:true) {
+    nodes {
+      title,
+      handle
+      image {
+        url
+      }
+    }
+  }
+}
+`

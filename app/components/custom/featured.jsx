@@ -1,5 +1,5 @@
 import {CartForm} from '@shopify/hydrogen';
-import {PiShoppingCartSimpleFill} from "react-icons/pi"
+import {PiShoppingCartSimpleFill} from 'react-icons/pi';
 
 export default function FeaturedProducts({collection}) {
   const products = collection.collection.products.nodes;
@@ -10,12 +10,12 @@ export default function FeaturedProducts({collection}) {
       </h1>
 
       {/* div containing the product cards */}
-      <div className="flex flex-wrap content-center justify-center gap-x-5 gap-y-5tea">
+      <div className="flex flex-wrap content-center justify-center gap-x-5 gap-y-5tea no-underline">
         {products.map((product) => (
           // the product card
           <div className="m-5 group bg-gray-100 hover:scale-105 hover:shadow-lg transition duration-300 ease-in-out rounded-md overflow-hidden">
             {/* a tag inside */}
-            <a href={`/products/${product.handle}`}>
+            <a className=" no-underline" href={`/products/${product.handle}`}>
               <img
                 className=" h-80 w-80 object-fill overflow-clip hover:scale-110 duration-500"
                 src={product.variants.nodes[0].image.url}
@@ -23,7 +23,7 @@ export default function FeaturedProducts({collection}) {
               />
 
               <div className="px-4 pb-4">
-                <h2>{product.title}</h2>
+                <h2 className="no-underline">{product.title}</h2>
                 {product.availableForSale ? <p>Available</p> : <p>Sold Out</p>}
                 <p>
                   {product.variants.nodes[0].price.currencyCode}{' '}
@@ -48,9 +48,11 @@ export default function FeaturedProducts({collection}) {
                     : []
                 }
               >
-                {product.availableForSale ? 
-                <PiShoppingCartSimpleFill className="hover:scale-105 w-7 h-7" />
-                : 'Sold out'}
+                {product.availableForSale ? (
+                  <PiShoppingCartSimpleFill className="hover:scale-105 w-7 h-7" />
+                ) : (
+                  'Sold out'
+                )}
               </AddToCartButton>
             </div>
           </div>
@@ -59,7 +61,6 @@ export default function FeaturedProducts({collection}) {
     </div>
   );
 }
-
 
 function AddToCartButton({analytics, children, disabled, lines, onClick}) {
   return (
