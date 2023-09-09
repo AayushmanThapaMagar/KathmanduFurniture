@@ -3,7 +3,7 @@ export default function Collections({getData}) {
   return (
     <div className="w-full h-fit lg:bg-center lg:mb-28 border-2 border-gray-200">
       <h1 className="text-center">Collections</h1>
-      <div className="flex flex-col flex-wrap lg:flex-row items-center justify-center lg:gap-x-7 flex-grow-0 gap-y-3">
+      <div className="flex flex-wrap flex-row items-center justify-center">
         {data.map((collection) =>
           collection.title === 'Featured Products' ? (
             <a
@@ -12,7 +12,7 @@ export default function Collections({getData}) {
               alt = "All Collections"
             >
                 <div
-                className="z-10 absolute bg-gray-100 lg:w-[150px] lg:h-[150px] flex items-center justify-center lg:bg-opacity-90 bg-opacity-80 rounded-lg text-center h-40 w-40"
+                className="z-10 absolute bg-gray-100 lg:w-[150px] lg:h-[150px] flex items-center justify-center bg-opacity-90 rounded-lg text-center h-32 w-32"
                 >
                 <h1> All 
                     Collections</h1>
@@ -21,7 +21,7 @@ export default function Collections({getData}) {
               <img
                 src = "/images/allcollections.jpg"
                 alt = "All Collections"
-                className="z-0 w-60 h-60 lg:w-full lg:h-[700px] object-cover group-hover:scale-110 transition duration-1000 ease-in-out overflow-hidden group-hover:opacity-40 opacity-50 lg:opacity-100"
+                className="z-0 w-48 h-48 lg:w-full lg:h-[700px] object-cover group-hover:scale-110 transition duration-1000 ease-in-out overflow-hidden group-hover:opacity-30 opacity-50 lg:opacity-75"
               />
             </a>
           ) : (
@@ -31,14 +31,14 @@ export default function Collections({getData}) {
               alt = {collection.title}
             >
                 <div
-                className="z-10 absolute bg-gray-100 lg:w-[150px] lg:h-[150px] flex items-center justify-center lg:bg-opacity-90 bg-opacity-80 rounded-lg text-center h-40 w-40"
+                className="z-10 absolute bg-gray-100 lg:w-[150px] lg:h-[150px] flex items-center justify-center bg-opacity-90 rounded-lg text-center h-32 w-32"
                 >
                 <h1>{collection.title}</h1>
                 </div>
 
               <img
                 src={collection.image.url}
-                className="z-0 w-60 h-60 lg:w-full lg:h-[700px] object-cover group-hover:scale-110 transition duration-1000 ease-in-out overflow-hidden group-hover:opacity-40 opacity-50 lg:opacity-100"
+                className="z-0 w-48 h-48 lg:w-full lg:h-[700px] object-cover group-hover:scale-110 transition duration-1000 ease-in-out overflow-hidden group-hover:opacity-30 opacity-50 lg:opacity-75"
               />
             </a>
           ),
