@@ -27,8 +27,8 @@ export default function Homepage() {
   return (
     <div className="home">
       <Hero />
-      <Stats />
       <FeaturedProducts collection={data.featuredCollection} />
+      <Stats />
       <Collections getData={data.viewCollections}/>
     </div>
   );

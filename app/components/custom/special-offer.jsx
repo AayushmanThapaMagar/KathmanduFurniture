@@ -1,16 +1,19 @@
 import {CartForm} from '@shopify/hydrogen';
 import {PiShoppingCartSimpleFill} from 'react-icons/pi';
 
-export default function FeaturedProducts({collection}) {
+export default function SpecialOffer({collection}) {
   const products = collection.collection.products.nodes;
   return (
-    <div className="my-20">
-      <h1 className="align-self-center text-center">
-        {collection.collection.title}
-      </h1>
+    <div className="lg:px-64 my-20">
+      <div className="lg:text-3xl text-2xl font-bold mb-10 lg:m-5">
+        SPECIAL <span className='before:block before:absolute before:-inset-1 before:skew-y-3 before:bg-red-600 relative inline-block'>
+          <span className='text-white relative'>OFFER</span>
+        </span>
+        <div className='pt-5 lg:text-xl text-base font-normal'>Products on a limited time discount</div>
+      </div>
 
       {/* div containing the product cards */}
-      <div className=" flex flex-row flex-nowrap lg:content-center lg:justify-center lg:gap-x-5 gap-y-5 overflow-y-auto gap-x-5">
+      <div className="flex flex-row flex-nowrap lg:gap-x-5 gap-y-5 overflow-y-auto gap-x-5">
         {products.map((product) => (
           // the product card
           <div className="lg:m-5 group bg-gray-100 transition duration-300 ease-in-out rounded-md overflow-hidden flex-shrink-0 lg:scale-105 hover:text-decoration-none">
