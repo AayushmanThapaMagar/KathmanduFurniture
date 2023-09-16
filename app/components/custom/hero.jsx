@@ -6,31 +6,34 @@ export default function Hero() {
   const buttonText = 'Shop Now';
 
   return (
-    <section className="h-[600px] w-full bg-black text-white pt-[255px] pb-[254px] relative mb-10 lg:bg-center">
-      {/* Video Background */}
+    <div
+      className="flex items-center justify-center lg:h-[720px] h-[500px] w-full bg-black bg-opacity-70 overflow-clip">
+      <div className="lg:pt-5 container flex flex-col absolute text-white justify-center items-center bg-blend-color-dodge gap-y-5">
+        <div
+          className="lg:text-5xl text-2xl font-semibold"
+        >{title}
+        </div>
+        <div
+          className="flex flex-wrap lg:text-2xl text-center break-words lg:px-0 px-10 font-poppins"
+        >
+          {subtitle}
+        </div>
+        <button
+          className="bg-[rgba(255,255,255,0.4)] hover:bg-[rgba(255,255,255,0.5)]  
+          px-[35px] py-[9px] text-xl rounded-md backdrop-blur-md transition mt-5"
+          onClick={() => window.location.href="/collections/"}
+        >
+          {buttonText}
+        </button>
+      </div>
       <video
-        className="w-full h-full object-cover absolute top-0 left-0 opacity-40"
+        className="-z-10 w-full h-full object-cover blur-[7px]"
         autoPlay
         loop
         muted
       >
         <source src="/video/hero.mp4" type="video/mp4" />
-        {/* Add additional source tags for different video formats if needed */}
       </video>
-
-      <div className="container mx-auto text-center">
-        <h1 className="text-2xl mx-auto font-semibold mb-[30px] lg:text-[52px]">
-          {title}
-        </h1>
-        <h2>{subtitle}</h2>
-        <button
-          className="bg-[rgba(255,255,255,0.4)] hover:bg-[rgba(255,255,255,0.5)] 
-                px-[35px] py-[9px] mb-[160px] mt-[30px]
-                text-xl rounded-md backdrop-blur-md transition"
-        >
-          {buttonText}
-        </button>
-      </div>
-    </section>
+    </div>
   );
 }

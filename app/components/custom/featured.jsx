@@ -16,24 +16,25 @@ export default function FeaturedProducts({collection}) {
           <div className="lg:m-5 group bg-gray-100 transition duration-300 ease-in-out rounded-md overflow-hidden flex-shrink-0 lg:scale-105 hover:text-decoration-none">
             {/* a tag inside */}
             <div>
-            <a href={`/products/${product.handle}`}
-            className='hover:no-underline'
-            >
-              <img
-                className="lg:h-96 lg:w-96 w-64 h-64 object-fill overflow-clip group-hover:scale-110 duration-500"
-                src={product.variants.nodes[0].image.url}
-                alt={product.title}
-              />
+              <a
+                href={`/products/${product.handle}`}
+                className="hover:no-underline"
+              >
+                <img
+                  className="lg:h-96 lg:w-96 w-64 h-64 object-fill overflow-clip group-hover:scale-110 duration-500"
+                  src={product.variants.nodes[0].image.url}
+                  alt={product.title}
+                />
 
-              <div className="px-4 pb-4">
-                <div >{product.title}</div>
-                {/* {product.availableForSale ? <p>Available</p> : <p>Sold Out</p>} */}
-                <div>
-                  {product.variants.nodes[0].price.currencyCode}{' '}
-                  {product.variants.nodes[0].price.amount}{' '}
+                <div className="px-4 pb-4">
+                  <div className='font-semibold'>{product.title}</div>
+                  {/* {product.availableForSale ? <p>Available</p> : <p>Sold Out</p>} */}
+                  <div>
+                    {product.variants.nodes[0].price.currencyCode}{' '}
+                    {product.variants.nodes[0].price.amount}{' '}
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
             </div>
             <div className="lg:opactiy-0 group-hover:opacity-100 transition absolute top-2 right-2 p-2 duration-500 opacity-100">
               <AddToCartButton

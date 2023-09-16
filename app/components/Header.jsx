@@ -1,10 +1,12 @@
 import {Await, NavLink, useMatches} from '@remix-run/react';
 import {Suspense} from 'react';
 
+import {FaShoppingCart, FaSearch, FaSignInAlt} from "react-icons/fa";
+
 export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
   return (
-    <header className="header">
+    <header className="header lg:px-20 px-4">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
         <strong>{shop.name}</strong>
       </NavLink>
@@ -71,7 +73,7 @@ function HeaderCtas({isLoggedIn, cart}) {
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        {isLoggedIn ? 'Account' : 'Sign in'}
+        {isLoggedIn ? 'Account' : <FaSignInAlt />}
       </NavLink>
       <SearchToggle />
       <CartToggle cart={cart} />
@@ -88,11 +90,12 @@ function HeaderMenuMobileToggle() {
 }
 
 function SearchToggle() {
-  return <a href="#search-aside">Search</a>;
+  return <a href="#search-aside"><FaSearch className='text-[#f8f6f6]'/></a>;
 }
 
 function CartBadge({count}) {
-  return <a href="#cart-aside">Cart {count}</a>;
+  return <a href="#cart-aside"><FaShoppingCart className='text-[#f8f6f6]'/> 
+  <div className='bg-[#ff9e00] px-2 text-center rounded-xl scale-50 absolute top-[13px] lg:right-[4.25rem] right-1 transform'>{count}</div></a>;
 }
 
 function CartToggle({cart}) {
@@ -101,7 +104,7 @@ function CartToggle({cart}) {
       <Await resolve={cart}>
         {(cart) => {
           if (!cart) return <CartBadge count={0} />;
-          return <CartBadge count={cart.totalQuantity || 0} />;
+          return <CartBadge count={cart.totalQuantity || null} />;
         }}
       </Await>
     </Suspense>
@@ -153,6 +156,6 @@ const FALLBACK_HEADER_MENU = {
 function activeLinkStyle({isActive, isPending}) {
   return {
     fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'black',
+    color: isPending ? 'grey' : '#f8f6f6',
   };
 }
