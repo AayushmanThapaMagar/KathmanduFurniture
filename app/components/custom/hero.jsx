@@ -2,13 +2,13 @@ export default function Hero() {
   //   const { title, subtitle, buttonText } = hero;
   const title = 'Tradition. Style. Comfort.';
   const subtitle =
-    'Introduce culture and tradition to you home with premium hand carved furniture from Nepal.';
+    'Introduce culture and tradition to you home with beautiful hand carved furniture from Nepal.';
   const buttonText = 'Shop Now';
 
   return (
     <div
-      className="flex items-center justify-center lg:h-[720px] h-[500px] w-full bg-black bg-opacity-70 overflow-clip">
-      <div className="lg:pt-5 container flex flex-col absolute text-white justify-center items-center bg-blend-color-dodge gap-y-5">
+      className=" flex items-center justify-center lg:h-[720px] h-[500px] w-full bg-neutral-950 bg-opacity-70 overflow-clip">
+      <div className="pt-5 container flex flex-col absolute text-white justify-center items-center bg-blend-color-dodge gap-y-5">
         <div
           className="lg:text-5xl text-2xl font-semibold"
         >{title}
@@ -27,12 +27,12 @@ export default function Hero() {
         </button>
       </div>
       <video
-        className="-z-10 w-full h-full object-cover blur-[7px] scale-105"
+        className="-z-10 w-full h-full object-cover"
         autoPlay
         loop
         muted
       >
-        <source src="/video/hero.mp4" type="video/mp4" />
+        <source src="/video/video.mp4" type="video/mp4" />
       </video>
     </div>
   );

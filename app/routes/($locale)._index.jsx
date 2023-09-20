@@ -29,8 +29,8 @@ export default function Homepage() {
     <div className="home">
       <Hero />
       <FeaturedProducts collection={data.featuredCollection} />
-      <Stats />
       <Collections getData={data.viewCollections}/>
+      <Stats />
       <About />
     </div>
   );

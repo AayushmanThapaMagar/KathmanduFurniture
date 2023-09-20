@@ -1,65 +1,79 @@
-// export default function AboutUs() {
-//   const text = ""
-//   return <div
-//   className="flex justify-center"
-//   >
-//     <div
-//     className='flex flex-row w-full lg:mx-16 lg:h-[500px] h-[250px]relative items-center overflow-clip'
-//     >
-//       <video
-//         className="w-full h-full object-cover blur-[7px] scale-105"
-//         autoPlay
-//         loop
-//         muted
-//       >
-//         <source src="/video/hero.mp4" type="video/mp4" />
-//       </video>
-//       {/* <div
-//       className="w-2/3 bg-pink-200 h-full lg:-translate-x-96 -translate-x-11 -skew-x-12"
-//       >
-
-//       </div>    */}
-//     </div>
-//   </div>;
-// }
-
+import React from 'react';
 
 export default function AboutUs() {
-  //   const { title, subtitle, buttonText } = hero;
-  const title = 'Tradition. Style. Comfort.';
-  const subtitle =
-    'Introduce culture and tradition to you home with premium hand carved furniture from Nepal.';
-  const buttonText = 'Shop Now';
+  const about = [
+    {
+      title: 'Who we are',
+      text: 'A Family owned business, we have been providing quality furnitures since 2014.',
+      image: '/images/photo2.jpg',
+      align: 'left'
+    },
+    {
+      title: 'One of a kind',
+      text: 'Every design is crafted as a single, unique piece, ensuring it is unlike any other.',
+      image: '/images/photo3.jpg',
+      align: 'right'
+    },
+    {
+      title: 'Premium Quality',
+      text: 'Crafted using the finest, market-leading materials for enduring beauty and strength.',
+      image: '/images/photo4.jpg',
+      align: 'left'
+    },
+    // {
+    //   title: 'Get in touch',
+    //   text: 'Lorem ipsum dolor sit amet c',
+    //   image: '/images/photo.jpg',
+    //   align: 'right'
+    // }
+  ];
 
   return (
-    <div
-      className="flex items-center justify-center lg:h-[720px] h-[500px] w-full bg-black bg-opacity-70 overflow-clip">
-      <div className="lg:pt-5 container flex flex-col absolute text-white justify-center items-center bg-blend-color-dodge gap-y-5">
-        <div
-          className="lg:text-5xl text-2xl font-semibold"
-        >{title}
-        </div>
-        <div
-          className="flex flex-wrap lg:text-2xl text-center break-words lg:px-0 px-10 font-poppins"
-        >
-          {subtitle}
-        </div>
-        <button
-          className="bg-[rgba(255,255,255,0.4)] hover:bg-[rgba(255,255,255,0.5)]  
-          px-[35px] py-[9px] text-xl rounded-md backdrop-blur-md transition mt-5"
-          onClick={() => window.location.href="/collections/"}
-        >
-          {buttonText}
-        </button>
-      </div>
-      <video
-        className="-z-10 w-full h-full object-cover blur-[7px] scale-105"
-        autoPlay
-        loop
-        muted
-      >
-        <source src="/video/video.mp4" type="video/mp4" />
-      </video>
+    <div className="flex flex-col px-10 overflow-clip lg:overflow-none">
+      {about.map((item, index) => (
+
+        item.align === 'left' ? (
+          // image on right
+          <div key={index} className="group flex w-full lg:pl-[300px] lg:-translate-y-2 border-2 border-black">
+            <div
+              className='px-5 mt-10 w-[400px] h-[200px] flex flex-col items-center text-center justify-center 
+              lg:translate-x-72 bg-gray-50 shadow-md group lg:group-hover:translate-x-64 lg:group-hover:shadow-xl transition-all ease-in-out duration-500'
+            >
+              <h1>{item.title}</h1>
+              <p>{item.text}</p>
+            </div>
+            <div
+              className='-z-10 w-1/2 lg:group-hover:scale-105 overflow-clip items translate-x-56 transition-all ease-in-out duration-700'
+            >
+              <img
+                className='rounded-none lg:h-[400px]'
+                src={item.image}
+                alt={item.title}
+              />
+            </div>
+          </div>
+        ) : (
+          // image on right
+          <div key={index} className="group flex w-full lg:translate-y-5 lg:-mt-10 border-pink-500 border-2">
+            <div
+              className='w-1/2 lg:group-hover:scale-105 lg:overflow-clip items translate-x-56 transition-all ease-in-out duration-700'
+            >
+              <img
+                className='rounded-none lg:h-[400px]'
+                src={item.image}
+                alt={item.title}
+              />
+            </div>
+            <div
+              className='lg:px-5 lg:mt-10 lg:w-[400px] lg:h-[200px] flex flex-col items-center text-center justify-center 
+              lg:-translate-x-56 bg-[#ebc384] shadow-md group lg:group-hover:-translate-x-52 group-hover:shadow-xl transition-all ease-in-out duration-500'
+            >
+              <h1>{item.title}</h1>
+              <p>{item.text}</p>
+            </div>
+          </div>
+        )
+      ))}
     </div>
   );
 }
