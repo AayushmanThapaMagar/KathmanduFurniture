@@ -27,7 +27,7 @@ export default function Hero() {
         </button>
       </div>
       <video
-        className="-z-10 w-full h-full object-cover blur-[7px]"
+        className="-z-10 w-full h-full object-cover blur-[7px] scale-105"
         autoPlay
         loop
         muted

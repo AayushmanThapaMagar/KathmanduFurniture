@@ -1,7 +1,7 @@
 export default function Collections({getData}) {
   const data = getData.collections.nodes;
   return (
-    <div className="w-full h-fit lg:bg-center lg:mb-28 my-20">
+    <div className="w-full h-fit lg:bg-center lg:mb-28">
       <h1 className="text-center">Collections</h1>
       <div className="text-center mb-5">View the Collections</div>
       <div className="flex flex-wrap flex-row items-center justify-center">

@@ -1,4 +1,4 @@
-export default function AddToCartButton({disabled, children, lines, onClick}) {
+export default function AddToCartButton({disabled, lines, onClick}) {
   return (
     <CartForm route="/cart" inputs={{lines}} action={CartForm.ACTIONS.LinesAdd}>
       {(fetcher) => (

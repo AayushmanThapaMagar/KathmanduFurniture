@@ -6,6 +6,7 @@ import Hero from '~/components/custom/hero';
 import FeaturedProducts from '~/components/custom/featured';
 import Collections from "~/components/custom/collections";
 import Stats from "~/components/custom/stats";
+import About from "~/components/custom/aboutus";
 
 export const meta = () => {
   return [
@@ -30,6 +31,7 @@ export default function Homepage() {
       <FeaturedProducts collection={data.featuredCollection} />
       <Stats />
       <Collections getData={data.viewCollections}/>
+      <About />
     </div>
   );
 }
