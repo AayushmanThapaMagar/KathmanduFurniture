@@ -1,7 +1,7 @@
-import {defer} from '@shopify/remix-oxygen';
-import {Await, useLoaderData, Link} from '@remix-run/react';
-import {Suspense} from 'react';
-import {Image, Money} from '@shopify/hydrogen';
+import { defer } from '@shopify/remix-oxygen';
+import { Await, useLoaderData, Link } from '@remix-run/react';
+import { Suspense } from 'react';
+import { Image, Money } from '@shopify/hydrogen';
 import Hero from '~/components/custom/hero';
 import FeaturedProducts from '~/components/custom/featured';
 import Collections from "~/components/custom/collections";
@@ -10,17 +10,17 @@ import About from "~/components/custom/aboutus";
 
 export const meta = () => {
   return [
-    {title: 'Kathmandu Furniture | Home'},
-    {description: 'Buy Premium Furniture Online'},
+    { title: 'Kathmandu Furniture | Home' },
+    { description: 'Buy Premium Furniture Online' },
   ];
 };
 
-export async function loader({context}) {
-  const {storefront} = context;
+export async function loader({ context }) {
+  const { storefront } = context;
   const featuredCollection = await storefront.query(FEATURED_COLLECTION_QUERY);
   const viewCollections = await storefront.query(INDEX_COLLECTIONS_QUERY);
 
-  return defer({featuredCollection, viewCollections});
+  return defer({ featuredCollection, viewCollections });
 }
 
 export default function Homepage() {
@@ -28,10 +28,12 @@ export default function Homepage() {
   return (
     <div className="home">
       <Hero />
-      <FeaturedProducts collection={data.featuredCollection} />
-      <Collections getData={data.viewCollections}/>
-      <Stats />
       <About />
+      <a name="FeaturedProducts" />
+      <FeaturedProducts collection={data.featuredCollection} />
+      <Collections getData={data.viewCollections} />
+      <Stats />
+      
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <div
-      className=" flex items-center justify-center lg:h-[720px] h-[500px] w-full bg-neutral-950 bg-opacity-70 overflow-clip">
+      className="flex items-center justify-center lg:h-screen h-[500px] w-full bg-neutral-950 bg-opacity-70 overflow-clip">
       <div className="pt-5 container flex flex-col absolute text-white justify-center items-center bg-blend-color-dodge gap-y-5">
         <div
           className="lg:text-5xl text-2xl font-semibold"
@@ -20,8 +20,8 @@ export default function Hero() {
         </div>
         <button
           className="bg-[rgba(255,255,255,0.4)] hover:bg-[rgba(255,255,255,0.5)]  
-          px-[35px] py-[9px] text-xl rounded-md backdrop-blur-md transition mt-5"
-          onClick={() => window.location.href="/collections/"}
+          px-[35px] py-[9px] text-xl rounded-md backdrop-blur-md transition mt-5 scroll-smooth"
+          onClick={() => window.location.href="#FeaturedProducts"}
         >
           {buttonText}
         </button>

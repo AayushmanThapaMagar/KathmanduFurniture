@@ -29,7 +29,7 @@ export default function Stats() {
   return (
     <div className="flex justify-center lg:mb-12 mb-5">
       {/* <div className="flex flex-row w-full lg:mx-10 h-28 bg-[#2596be] relative rounded-lg items-center lg:px-20 text-gray-100"> */}
-      <div className='flex flex-row w-full lg:mx-10 h-28 bg-[#0D0606] relative rounded-lg items-center lg:px-20 text-[#f8f8f6]' >
+      <div className='flex flex-row w-full lg:mx-10 h-28 bg-[#0D0606] relative items-center lg:px-20 text-[#f8f8f6]' >
         {stats.map((stat) => (
           <div className="group flex flex-col lg:w-20 lg:h-20 w-10 h-20 text-center flex-grow gap-y-2 border-2 border-[#0D0606]">
             <div className="flex-shrink-0 place-self-center group-hover:scale-110 transition duration-500 ease-in-out">
