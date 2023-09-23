@@ -27,7 +27,7 @@ export default function Stats() {
   ];
 
   return (
-    <div className="flex justify-center lg:mb-12 mb-5">
+    <div className="flex justify-center lg:mb-12 mb-5 lg:my-0 my-2">
       {/* <div className="flex flex-row w-full lg:mx-10 h-28 bg-[#2596be] relative rounded-lg items-center lg:px-20 text-gray-100"> */}
       <div className='flex flex-row w-full lg:mx-10 h-28 bg-[#0D0606] relative items-center lg:px-20 text-[#f8f8f6]' >
         {stats.map((stat) => (

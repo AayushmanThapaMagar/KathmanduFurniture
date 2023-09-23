@@ -5,4 +5,11 @@ import typographyPlugin from '@tailwindcss/typography';
 export default {
   content: ['./app/**/*.{js,ts,jsx,tsx}'],
   plugins: [formsPlugin, typographyPlugin],
+  theme: {
+    extend: {
+      backgroundImage: {
+        'image' : "url('/images/photo2.jpg')",
+      }
+    }
+  },
 };

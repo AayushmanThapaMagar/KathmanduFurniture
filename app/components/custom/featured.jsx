@@ -4,7 +4,8 @@ import {PiShoppingCartSimpleFill} from 'react-icons/pi';
 export default function FeaturedProducts({collection}) {
   const products = collection.collection.products.nodes;
   return (
-    <div className="">
+    <div>
+      <a name="FeaturedProducts" />
       <h1 className="align-self-center text-center">
         {collection.collection.title}
       </h1>
