@@ -10,7 +10,7 @@ export default function AboutSection() {
 
   const handleScroll = () => {
     const offset = window.scrollY;
-    const second = Math.min(offset / 15, 100)
+    const second = Math.min(offset / 15.5, 100)
     setBackgroundPosition(`0% ${second}%`);
   };
 

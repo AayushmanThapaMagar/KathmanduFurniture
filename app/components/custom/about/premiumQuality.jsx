@@ -2,7 +2,7 @@
 export default function PremiumQuality({ backgroundPosition }) {
     const { title, subtitle, text, image } = {
         title: 'Premium Quality',
-        subtitle: 'Crafted using the finest materials for enduring beauty and strength',
+        subtitle: 'Crafted using the finest materials for endurance, beauty and strength',
         text: 'We use Nepali Sissoo wood, along with finest cloth and foam for a permium fit and finish.',
         image: '/images/lumber.jpg',
     };
