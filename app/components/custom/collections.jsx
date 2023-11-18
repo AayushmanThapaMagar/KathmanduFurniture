@@ -6,7 +6,7 @@ export default function Collections({getData}) {
       <div className="text-center mb-5">View the Collections</div>
       <div className="flex flex-wrap flex-row items-center justify-center">
         {data.map((collection) =>
-          collection.title === 'Featured Products' ? (
+          collection.title === 'Special offers' ? (
             <a
               className="group lg:w-1/6 lg:h-full overflow-hidden flex items-center justify-center rounded-lg bg-black lg:my-3 scale-95 m-1 lg:hover:w-1/4 transition-all ease-in-out duration-300 delay-700"
               href="/collections/"

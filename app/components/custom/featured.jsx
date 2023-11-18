@@ -5,7 +5,6 @@ export default function FeaturedProducts({collection}) {
   const products = collection.collection.products.nodes;
   return (
     <div>
-      <a name="FeaturedProducts" />
       <h1 className="align-self-center text-center">
         {collection.collection.title}
       </h1>
@@ -28,16 +27,36 @@ export default function FeaturedProducts({collection}) {
                 />
 
                 <div className="px-4 pb-4">
-                  <div className='font-semibold'>{product.title}</div>
-                  {/* {product.availableForSale ? <p>Available</p> : <p>Sold Out</p>} */}
+                  {/* <div className='font-semibold'>{product.title}</div> */}
                   <div>
-                    {product.variants.nodes[0].price.currencyCode}{' '}
-                    {product.variants.nodes[0].price.amount}{' '}
+
+                    {product.variants.nodes[0].compareAtPrice ? 
+                  (
+                    <div className='mb-3'>
+                    <div className='text-xs font-semibold bg-red-500 w-1/6 text-center rounded-lg text-white py-1'>SALE</div>
+                    <div className='font-semibold'>{product.title}</div>
+                    <div className='flex flex-row gap-x-1'>
+                    <p>{product.variants.nodes[0].price.currencyCode}{' '}
+                    {product.variants.nodes[0].price.amount}{' '}</p>
+                
+                    <p className='line-through text-gray-400'>{product.variants.nodes[0].compareAtPrice.amount}</p>
+                    </div>
+                    </div>
+                    
+                  ) : (
+                    <>
+                    <div className='text-xs font-semibold bg-red-transparent w-1/6 text-center rounded-lg text-white my-1 py-1'></div>
+                    <div className='font-semibold'>{product.title}</div>
+                    <p>{product.variants.nodes[0].price.currencyCode}{' '}
+                    {product.variants.nodes[0].price.amount}{' '}</p>
+                    </>
+                  )  
+                  }
                   </div>
                 </div>
               </a>
             </div>
-            <div className="lg:opactiy-0 group-hover:opacity-100 transition absolute top-2 right-2 p-2 duration-500 opacity-100">
+            <div className="lg:opactiy-0 lg:group-hover:opacity-100 transition absolute top-2 right-2 p-2 duration-500 ">
               <AddToCartButton
                 disabled={!product.availableForSale}
                 onClick={() => {

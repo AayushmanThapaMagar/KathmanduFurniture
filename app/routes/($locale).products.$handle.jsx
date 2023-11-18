@@ -123,8 +123,8 @@ function ProductImage({image}) {
 function ProductMain({selectedVariant, product, variants}) {
   const {title, descriptionHtml} = product;
   return (
-    <div className="product-main">
-      <h1>{title}</h1>
+    <div className="product-main px-2 bg-gray-50">
+      <h1 className='pt-5'>{title}</h1>
       <ProductPrice selectedVariant={selectedVariant} />
       <br />
       <Suspense
@@ -150,12 +150,7 @@ function ProductMain({selectedVariant, product, variants}) {
         </Await>
       </Suspense>
       <br />
-      <br />
-      <p>
-        <strong>Description</strong>
-      </p>
-      <br />
-      <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
+      <div className= "bg-gray-100" dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       <br />
     </div>
   );
@@ -166,7 +161,7 @@ function ProductPrice({selectedVariant}) {
     <div className="product-price">
       {selectedVariant?.compareAtPrice ? (
         <>
-          <p>Sale</p>
+          <p className='text-4xl text-red-500'>On Sale</p>
           <br />
           <div className="product-price-on-sale">
             {selectedVariant ? <Money data={selectedVariant.price} /> : null}
@@ -258,6 +253,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
+            className='bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors duration-300 ease-in-out w-fit'
           >
             {children}
           </button>

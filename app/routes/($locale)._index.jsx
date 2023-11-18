@@ -17,10 +17,10 @@ export const meta = () => {
 
 export async function loader({ context }) {
   const { storefront } = context;
-  const featuredCollection = await storefront.query(FEATURED_COLLECTION_QUERY);
+  const specialOffers = await storefront.query(SPECIAL_OFFERS_QUERY);
   const viewCollections = await storefront.query(INDEX_COLLECTIONS_QUERY);
 
-  return defer({ featuredCollection, viewCollections });
+  return defer({ specialOffers, viewCollections });
 }
 
 export default function Homepage() {
@@ -29,17 +29,20 @@ export default function Homepage() {
     <div className="home">
       <Hero />
       <AboutSection />
+      
+      <a name="FeaturedProducts" className='hover:no-underline hover:cursor-auto'> 
       <Stats />
-      <FeaturedProducts collection={data.featuredCollection} />
+      </a>
+      <FeaturedProducts collection={data.specialOffers} />
       <Collections getData={data.viewCollections} />
       
     </div>
   );
 }
 
-const FEATURED_COLLECTION_QUERY = ` #graphql
+const SPECIAL_OFFERS_QUERY = ` #graphql
 query {
-  collection (handle:"featured-product") {
+  collection (handle:"special-offers") {
     title,
     products (first: 10) {
       nodes {
@@ -55,6 +58,10 @@ query {
               url
             }
             price {
+              currencyCode,
+              amount
+            }
+            compareAtPrice {
               currencyCode,
               amount
             }

@@ -349,9 +349,9 @@ aside li {
   margin-bottom: 2rem;
 }
 
-/* .collection-item img {
+.collection-item img {
   height: auto;
-} */
+}
 
 /*
 * --------------------------------------------------
@@ -387,7 +387,7 @@ aside li {
   display: grid;
   @media (min-width: 45em) {
     grid-template-columns: 1fr 1fr;
-    /* grid-gap: 2rem; */
+    grid-gap: 4rem;
   }
 }
 
