@@ -8,6 +8,8 @@ import {
 } from '@shopify/hydrogen';
 import {useVariantUrl} from '~/utils';
 
+import ProductCard from '~/components/custom/productCard';
+
 export const meta = ({data}) => {
   return [{title: `Hydrogen | ${data.collection.title} Collection`}];
 };
@@ -78,28 +80,30 @@ function ProductsGrid({products}) {
 
 function ProductItem({product, loading}) {
   const variant = product.variants.nodes[0];
+  const availableForSale = variant.availableForSale;
   const variantUrl = useVariantUrl(product.handle, variant.selectedOptions);
   return (
-    <Link
-      className="product-item"
-      key={product.id}
-      prefetch="intent"
-      to={variantUrl}
-    >
-      {product.featuredImage && (
-        <Image
-          alt={product.featuredImage.altText || product.title}
-          aspectRatio="1/1"
-          data={product.featuredImage}
-          loading={loading}
-          sizes="(min-width: 45em) 400px, 100vw"
-        />
-      )}
-      <h4>{product.title}</h4>
-      <small>
-        <Money data={product.priceRange.minVariantPrice} />
-      </small>
-    </Link>
+    // <Link
+    //   className="product-item"
+    //   key={product.id}
+    //   prefetch="intent"
+    //   to={variantUrl}
+    // >
+    //   {product.featuredImage && (
+    //     <Image
+    //       alt={product.featuredImage.altText || product.title}
+    //       aspectRatio="1/1"
+    //       data={product.featuredImage}
+    //       loading={loading}
+    //       sizes="(min-width: 45em) 400px, 100vw"
+    //     />
+    //   )}
+    //   <h4>{product.title}</h4>
+    //   <small>
+    //     <Money data={product.priceRange.minVariantPrice} />
+    //   </small>
+    // </Link>
+    <ProductCard variant={variant} variantUrl={variantUrl} loading={loading} product={product} availableForSale={availableForSale}/>
   );
 }
 
@@ -129,6 +133,19 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
     }
     variants(first: 1) {
       nodes {
+
+        availableForSale,
+        id,
+
+        price {
+          currencyCode,
+          amount
+        }
+        compareAtPrice {
+          currencyCode,
+          amount
+        }
+
         selectedOptions {
           name
           value
