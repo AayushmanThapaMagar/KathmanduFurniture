@@ -64,7 +64,7 @@ export default function Collection() {
 
 function ProductsGrid({products}) {
   return (
-    <div className="products-grid">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-2">
       {products.map((product, index) => {
         return (
           <ProductItem
@@ -83,26 +83,6 @@ function ProductItem({product, loading}) {
   const availableForSale = variant.availableForSale;
   const variantUrl = useVariantUrl(product.handle, variant.selectedOptions);
   return (
-    // <Link
-    //   className="product-item"
-    //   key={product.id}
-    //   prefetch="intent"
-    //   to={variantUrl}
-    // >
-    //   {product.featuredImage && (
-    //     <Image
-    //       alt={product.featuredImage.altText || product.title}
-    //       aspectRatio="1/1"
-    //       data={product.featuredImage}
-    //       loading={loading}
-    //       sizes="(min-width: 45em) 400px, 100vw"
-    //     />
-    //   )}
-    //   <h4>{product.title}</h4>
-    //   <small>
-    //     <Money data={product.priceRange.minVariantPrice} />
-    //   </small>
-    // </Link>
     <ProductCard variant={variant} variantUrl={variantUrl} loading={loading} product={product} availableForSale={availableForSale}/>
   );
 }

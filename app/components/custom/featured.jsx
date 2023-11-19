@@ -13,7 +13,7 @@ export default function FeaturedProducts({collection}) {
       <div className=" flex flex-row flex-nowrap lg:content-center lg:justify-center lg:gap-x-5 gap-y-5 overflow-y-auto gap-x-5">
         {products.map((product) => (
           // the product card
-          <div className="lg:m-5 group bg-gray-100 transition duration-300 ease-in-out rounded-md overflow-hidden flex-shrink-0 lg:scale-105 hover:text-decoration-none">
+          <div className="lg:m-5 group bg-gray-100 transition duration-300 ease-in-out rounded-md overflow-hidden shrink-0 lg:scale-105 hover:text-decoration-none">
             {/* a tag inside */}
             <div>
               <a
